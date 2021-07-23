@@ -27,23 +27,23 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
     }
 
     protected function initDatabase()
     {
         config([
-            'database.connections.mysql.host' => w7_config('db.master.host'),
-            'database.connections.mysql.port' => w7_config('db.master.port'),
-            'database.connections.mysql.database' => w7_config('db.master.database'),
-            'database.connections.mysql.username' => w7_config('db.master.username'),
-            'database.connections.mysql.password' => w7_config('db.master.password'),
+            'database.connections.mysql.host' => app('w7.config')->get('db.master.host'),
+            'database.connections.mysql.port' => app('w7.config')->get('db.master.port'),
+            'database.connections.mysql.database' => app('w7.config')->get('db.master.database'),
+            'database.connections.mysql.username' => app('w7.config')->get('db.master.username'),
+            'database.connections.mysql.password' => app('w7.config')->get('db.master.password'),
         ]);
     }
 
     protected function initApp()
     {
-        $appKey = w7_config('db.master.password');
+        $appKey = app('w7.config')->get('db.master.password');
         $appKey = md5($appKey);
         $appKey = 'base64:'.base64_encode($appKey);
         config([

@@ -13,10 +13,7 @@
     "autoload": {
         "psr-4": {
             "Inn20\\LaravelWeiqin\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "extra": {
         "laravel": {
