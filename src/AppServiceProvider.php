@@ -44,7 +44,7 @@ class AppServiceProvider extends ServiceProvider
     protected function initApp()
     {
         $appKey = app('w7.config')->get('db.master.password');
-        $appKey = md5($appKey);
+        $appKey = md5(md5($appKey.'w7w7w7w7'));
         $appKey = 'base64:'.base64_encode($appKey);
         config([
             'app.key' => $appKey,
