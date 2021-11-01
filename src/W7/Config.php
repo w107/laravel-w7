@@ -19,7 +19,14 @@ class Config extends Repository
     public function loadConfigs()
     {
         define('IN_IA', 1);
-        require base_path('../../../data/config.php');
+
+        $test_config = base_path('config.php');
+        if (is_file($test_config)) {
+            require $test_config;
+        } else {
+            require base_path('../../../data/config.php');
+        }
+
         return $config;
     }
 }
